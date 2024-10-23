@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線性回歸應用</title>
+</head>
+<body>
+    <h1>線性回歸模型</h1>
+    <form method="post">
+        <label for="slope">斜率 (a):</label>
+        <input type="text" name="slope" required><br><br>
+        <label for="noise">噪聲等級:</label>
+        <input type="text" name="noise" required><br><br>
+        <label for="num_points">資料點數量:</label>
+        <input type="text" name="num_points" required><br><br>
+        <input type="submit" value="生成">
+    </form>
+
+    {% if mse is not none %}
+        <h2>均方誤差 (MSE): {{ mse }}</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="回歸圖">
+    {% endif %}
+</body>
+</html>
